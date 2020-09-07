@@ -9,11 +9,11 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class TokenIssuer {
     //Expiration time of token would be 60 mins
-    public static final long EXPIRY_MINS = 60L;
+    public static final long EXPIRY_MINS = 1L;
 
     public String issueToken(String username) {
-        LocalDateTime expiryPeriod = LocalDateTime.now()
-                                        .plusMinutes(EXPIRY_MINS);
+        LocalDateTime expiryPeriod = LocalDateTime.now().plusSeconds(15);
+                                        //.plusMinutes(EXPIRY_MINS);
         Date expirationDateTime = Date.from(
                 expiryPeriod.atZone(ZoneId.systemDefault())
                         .toInstant());

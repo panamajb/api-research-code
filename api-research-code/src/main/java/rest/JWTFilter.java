@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.security.Key;
 
 @Provider
-//@JWTRequired
+@JWTRequired
 @Priority(Priorities.AUTHENTICATION)
 public class JWTFilter implements ContainerRequestFilter {
 
@@ -30,6 +30,7 @@ public class JWTFilter implements ContainerRequestFilter {
         String token = header.substring("Bearer".length()).trim();
 
         String user = getUserIfValid(token);
+        System.out.println("USER:  "+user);
         //set user in context if required
     }
 
