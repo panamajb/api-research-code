@@ -6,17 +6,18 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
 import auth.TokenIssuer;
+
 @Path("authenticate")
 public class Authenticate {
-	
+
 	//@Inject private TokenIssuer issuer;
 	
 	//@POST
 	@GET
     @Produces(MediaType.TEXT_PLAIN)
 	public Response authenticate() {
+		System.out.println("AUTHENTICATE IS RUNNING....");
 		TokenIssuer issuer = new TokenIssuer();
 	       // boolean valid = service.isValid(creds.getUsername(),creds.getPassword());
 		boolean valid=true;
